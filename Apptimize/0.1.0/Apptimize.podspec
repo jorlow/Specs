@@ -1,13 +1,13 @@
 Pod::Spec.new do |s|
   s.name         = 'Apptimize'
-  s.version      = '0.1.0'
-  s.summary      = 'AB Testing for iOS.'
+  s.version      = '1.2.3'
+  s.summary      = 'Apptimize Library for AB testing on iOS.'
   s.description  = 'Anything you can program, you can test with Apptimize.'
   s.homepage     = 'http://apptimize.com/'
   s.author       = 'Apptimize, Inc.'
   s.license = {
-    :type => 'Copyright',
-    :text => 'Copyright (c) 2013 Apptimize, Inc.'
+    :type => 'commercial',
+    :text => 'See https://apptimize.com/admin/terms'
   }
   
   s.source = {
@@ -22,7 +22,9 @@ Pod::Spec.new do |s|
   s.resource       = 'apptimize/Apptimize.bundle'
   s.header_dir     = 'Apptimize'
   
-  s.frameworks = 'Apptimize', 'CoreData', 'Security', 'Foundation', 'CFNetwork', 'UIKit'
+  s.frameworks = 'Apptimize', 'CoreData', 'Security', 'Foundation', 'CFNetwork', 'CoreImage', 'UIKit'
   s.libraries  = 'icucore', 'z'
-  s.xcconfig   = { 'OTHER_LDFLAGS' => '-ObjC', 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Apptimize/apptimize"' }
+  s.xcconfig   = { 'OTHER_LDFLAGS' => '-ObjC -all_load', 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Apptimize/apptimize"' }
+
+  s.requires_arc = true
 end
